@@ -1095,11 +1095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805a5550f00c2864c9ea48d01d1bb318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifePoints: 10
-  obstacles:
-  - {fileID: 4969540464832519776, guid: c0adae2ca82139c4890a0b009a2735a6, type: 3}
-  - {fileID: 919132149155446097, guid: 3704f983033d4e3458c9c9e01db202b0, type: 3}
-  - {fileID: 919132149155446097, guid: 8dfd124fd652e014781567121b76d0c3, type: 3}
+  lifePointsRemoved: 10
 --- !u!4 &1865409958
 Transform:
   m_ObjectHideFlags: 0
@@ -1320,7 +1316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3950537802683145397, guid: 65863dd6106c08a45ada9c2d9a56ad6b, type: 3}
       propertyPath: limits
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3950537802683145397, guid: 65863dd6106c08a45ada9c2d9a56ad6b, type: 3}
       propertyPath: lifeBar

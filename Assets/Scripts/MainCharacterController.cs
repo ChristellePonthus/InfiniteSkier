@@ -13,7 +13,7 @@ public class MainCharacterController : MonoBehaviour
     private Vector3 _velocity = Vector3.zero;
 
     private float currentLife = 0f;
-    private float maxLife = 10f;
+    private float maxLife = 100f;
     private float currentPoints = 0f;
 
     [SerializeField] private LifeBar lifeBar;
@@ -45,35 +45,28 @@ public class MainCharacterController : MonoBehaviour
             targetDirection += Vector3.right;
         }
 
-        if (transform.position.x > limits)
+        if (transform.position.x >= limits)
         {
             targetDirection = Vector3.left;
         }
-        if (transform.position.x < -limits)
+        if (transform.position.x <= -limits)
         {
             targetDirection = Vector3.right;
         }
 
-        _currentDirection = Vector3.SmoothDamp(_currentDirection, targetDirection, ref _velocity, .5f);
+        /*_currentDirection = Vector3.SmoothDamp(_currentDirection, targetDirection, ref _velocity, .8f);*/
+        _currentDirection = targetDirection;
 
         transform.Translate(moveSpeed * Time.deltaTime * _currentDirection);
 
         lifeBar.SetLifepoints(currentLife);
 
-        /*ApplyTilt();*/
     }
 
-    void ApplyTilt()
+    public void AddLifePoints(float lifepoints)
     {
-        float tilit = -_currentDirection.x * 10f;
-        Quaternion targetRotation = Quaternion.Euler(0, 0, tilit);
-
-    }
-    public void AddLifePoints(float amount)
-    {
-        currentLife += amount;
+        currentLife += lifepoints;
         lifeBar.SetLifepoints(currentLife);
-        Debug.Log("Adding Life Points : " + currentLife);
     }
 
     public void AddPoints(float points)
@@ -82,10 +75,9 @@ public class MainCharacterController : MonoBehaviour
         onSetPoints.Invoke(currentPoints);
     }
 
-    public void RemoveLifePoints(float amount)
+    public void RemoveLifePoints(float lifepoints)
     {
-        currentLife -= amount;
-        onSetLifepoints.Invoke(currentLife);
-        Debug.Log("Removing Life Points : " + currentLife);
+        currentLife -= lifepoints;
+        lifeBar.SetLifepoints(currentLife);
     }
 }

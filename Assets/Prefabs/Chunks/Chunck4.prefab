@@ -123,11 +123,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: treePine
       objectReference: {fileID: 0}
+    - target: {fileID: 2295611200089599576, guid: ed2de41445ac1fe4fadd3b9864552c5f, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1063100887130051970, guid: ed2de41445ac1fe4fadd3b9864552c5f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6909191803713741168}
   m_SourcePrefab: {fileID: 100100000, guid: ed2de41445ac1fe4fadd3b9864552c5f, type: 3}
+--- !u!1 &7194949478816033710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1063100887130051970, guid: ed2de41445ac1fe4fadd3b9864552c5f, type: 3}
+  m_PrefabInstance: {fileID: 7861452002914221612}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6909191803713741168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7194949478816033710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805a5550f00c2864c9ea48d01d1bb318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifePointsRemoved: 10
 --- !u!4 &7535165127541551380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 399470386866704184, guid: ed2de41445ac1fe4fadd3b9864552c5f, type: 3}
@@ -208,6 +233,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3704f983033d4e3458c9c9e01db202b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6209957336449389166}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3704f983033d4e3458c9c9e01db202b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4177313450793127136}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3704f983033d4e3458c9c9e01db202b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6408735527943716369}
   m_SourcePrefab: {fileID: 100100000, guid: 3704f983033d4e3458c9c9e01db202b0, type: 3}
 --- !u!4 &8422161762748550502 stripped
 Transform:
@@ -234,7 +265,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -242,6 +273,46 @@ CapsuleCollider:
   m_Height: 1.9409999
   m_Direction: 1
   m_Center: {x: 0, y: 0.97049993, z: 0}
+--- !u!54 &4177313450793127136
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199261038421284828}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &6408735527943716369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199261038421284828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805a5550f00c2864c9ea48d01d1bb318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifePointsRemoved: 10
 --- !u!1001 &8863572649025225005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -317,6 +388,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3704f983033d4e3458c9c9e01db202b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3563925368786859682}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3704f983033d4e3458c9c9e01db202b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4979104998716854759}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3704f983033d4e3458c9c9e01db202b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3992633805806392277}
   m_SourcePrefab: {fileID: 100100000, guid: 3704f983033d4e3458c9c9e01db202b0, type: 3}
 --- !u!1 &8629131687978695804 stripped
 GameObject:
@@ -338,7 +415,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -346,6 +423,46 @@ CapsuleCollider:
   m_Height: 1.9409999
   m_Direction: 1
   m_Center: {x: 0, y: 0.97049993, z: 0}
+--- !u!54 &4979104998716854759
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8629131687978695804}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &3992633805806392277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8629131687978695804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805a5550f00c2864c9ea48d01d1bb318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifePointsRemoved: 10
 --- !u!4 &8974272324118849222 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3704f983033d4e3458c9c9e01db202b0, type: 3}

@@ -135,6 +135,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2e84c0f563c94a43a03b67a1170d498, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4778729168208619257}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2e84c0f563c94a43a03b67a1170d498, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8644318718960246368}
   m_SourcePrefab: {fileID: 100100000, guid: d2e84c0f563c94a43a03b67a1170d498, type: 3}
 --- !u!1 &5141925259191445483 stripped
 GameObject:
@@ -164,6 +167,33 @@ CapsuleCollider:
   m_Height: 0.9000001
   m_Direction: 1
   m_Center: {x: -0.38, y: 0.45000005, z: 0.0074995235}
+--- !u!54 &8644318718960246368
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5141925259191445483}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &5480908694617505105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2e84c0f563c94a43a03b67a1170d498, type: 3}
@@ -180,6 +210,14 @@ PrefabInstance:
     - target: {fileID: 4969540464832519776, guid: c0adae2ca82139c4890a0b009a2735a6, type: 3}
       propertyPath: m_Name
       value: rocks
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969540464832519776, guid: c0adae2ca82139c4890a0b009a2735a6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969540464832519776, guid: c0adae2ca82139c4890a0b009a2735a6, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 5745619049798550746, guid: c0adae2ca82139c4890a0b009a2735a6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -224,10 +262,61 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4969540464832519776, guid: c0adae2ca82139c4890a0b009a2735a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2052575883472044056}
+    - targetCorrespondingSourceObject: {fileID: 4969540464832519776, guid: c0adae2ca82139c4890a0b009a2735a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2329120671094894469}
   m_SourcePrefab: {fileID: 100100000, guid: c0adae2ca82139c4890a0b009a2735a6, type: 3}
 --- !u!4 &2440807710762718018 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5745619049798550746, guid: c0adae2ca82139c4890a0b009a2735a6, type: 3}
   m_PrefabInstance: {fileID: 7954473753037903768}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3068267473732864504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4969540464832519776, guid: c0adae2ca82139c4890a0b009a2735a6, type: 3}
+  m_PrefabInstance: {fileID: 7954473753037903768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2052575883472044056
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3068267473732864504}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2329120671094894469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3068267473732864504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805a5550f00c2864c9ea48d01d1bb318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifePointsRemoved: 10
