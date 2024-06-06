@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class Scroller : MonoBehaviour
 {
-    public float speed = 1.0f;
     public Transform chunksContainer;
     public Transform collectableContainer;
+    [SerializeField] private MainCharacterController characterController;
 
 
     void Update()
     {
-        var velocity = Vector3.back * speed * Time.deltaTime;
+        var velocity = Vector3.back * characterController.currentSpeed * Time.deltaTime;
 
         foreach (Transform child in chunksContainer)
             child.position += velocity;

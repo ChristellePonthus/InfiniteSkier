@@ -1,9 +1,15 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class MainCharacterController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 10f;
+    public float targetSpeed = 10f;
+    public float currentSpeed = 0f;
+
+    public float targetMoveSpeed = 10f;
+    public float currentMoveSpeed = 0f;
+    
     [SerializeField] private float limits = 3f;
 
     [SerializeField] private Transform character;
@@ -56,8 +62,10 @@ public class MainCharacterController : MonoBehaviour
 
         /*_currentDirection = Vector3.SmoothDamp(_currentDirection, targetDirection, ref _velocity, .8f);*/
         _currentDirection = targetDirection;
+        currentSpeed = targetSpeed;
+        currentMoveSpeed = targetMoveSpeed;
 
-        transform.Translate(moveSpeed * Time.deltaTime * _currentDirection);
+        transform.Translate(currentMoveSpeed * Time.deltaTime * _currentDirection);
 
         lifeBar.SetLifepoints(currentLife);
 
@@ -79,5 +87,12 @@ public class MainCharacterController : MonoBehaviour
     {
         currentLife -= lifepoints;
         lifeBar.SetLifepoints(currentLife);
+        character.position = Vector3.zero;
+        targetSpeed = 10;
+        if (currentLife <= 0)
+        {
+            targetSpeed = 0;
+            SceneManager.LoadScene("GameOver");
+        }
     }
 }
