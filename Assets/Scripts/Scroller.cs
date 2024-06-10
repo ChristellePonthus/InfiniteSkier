@@ -9,7 +9,7 @@ public class Scroller : MonoBehaviour
 
     void Update()
     {
-        var velocity = Vector3.back * characterController.currentSpeed * Time.deltaTime;
+        var velocity = characterController.currentSpeed * Time.deltaTime * Vector3.back;
 
         foreach (Transform child in chunksContainer)
             child.position += velocity;

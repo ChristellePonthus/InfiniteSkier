@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
     public List<GameObject> chunks;
     private void OnTriggerExit(Collider other)
     {
-        Transform lastChunkEnd = other.gameObject.transform.Find("ChunckEnd");
+        Transform lastChunkEnd = other.gameObject.transform.Find("ChunkEnd");
         Instantiate(PickRandomChunk(), lastChunkEnd.position, Quaternion.identity, chunksContainer);
     }
 

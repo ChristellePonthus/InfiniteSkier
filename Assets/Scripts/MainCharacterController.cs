@@ -18,9 +18,9 @@ public class MainCharacterController : MonoBehaviour
     private Vector3 _currentDirection = Vector3.zero;
     private Vector3 _velocity = Vector3.zero;
 
-    private float currentLife = 0f;
+    public float currentLife = 0f;
     private float maxLife = 100f;
-    private float currentPoints = 0f;
+    public float currentPoints = 0f;
 
     [SerializeField] private LifeBar lifeBar;
 
@@ -30,69 +30,69 @@ public class MainCharacterController : MonoBehaviour
 
     private void Start()
     {
-        currentLife = maxLife;
-        lifeBar.SetMaxLifepoints(maxLife);
+        if (!demoMode)
+        {
+            currentLife = maxLife;
+            lifeBar.SetMaxLifepoints(maxLife);
+        }
     }
 
 
     void Update()
     {
         Vector3 targetDirection = Vector3.zero;
-
-        /*if (demoMode)
-            return targetDirection;*/
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            targetDirection += Vector3.left;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            targetDirection += Vector3.right;
-        }
-
-        if (transform.position.x >= limits)
-        {
-            targetDirection = Vector3.left;
-        }
-        if (transform.position.x <= -limits)
-        {
-            targetDirection = Vector3.right;
-        }
-
-        /*_currentDirection = Vector3.SmoothDamp(_currentDirection, targetDirection, ref _velocity, .8f);*/
-        _currentDirection = targetDirection;
         currentSpeed = targetSpeed;
-        currentMoveSpeed = targetMoveSpeed;
 
-        transform.Translate(currentMoveSpeed * Time.deltaTime * _currentDirection);
+        if (!demoMode)
+        {
+            if (Input.GetKey(KeyCode.A))
+            {
+                targetDirection += Vector3.left;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                targetDirection += Vector3.right;
+            }
 
-        lifeBar.SetLifepoints(currentLife);
+            if (transform.position.x >= limits)
+            {
+                targetDirection = Vector3.left;
+            }
+            if (transform.position.x <= -limits)
+            {
+                targetDirection = Vector3.right;
+            }
 
-    }
+            /*_currentDirection = Vector3.SmoothDamp(_currentDirection, targetDirection, ref _velocity, .8f);*/
+            _currentDirection = targetDirection;
+            currentMoveSpeed = targetMoveSpeed;
 
-    public void AddLifePoints(float lifepoints)
-    {
-        currentLife += lifepoints;
-        lifeBar.SetLifepoints(currentLife);
+            transform.Translate(currentMoveSpeed * Time.deltaTime * _currentDirection);
+
+            lifeBar.SetLifepoints(currentLife);
+        }
     }
 
     public void AddPoints(float points)
     {
-        currentPoints += points;
-        onSetPoints.Invoke(currentPoints);
+        if (!demoMode) {
+            currentPoints += points;
+            onSetPoints.Invoke(currentPoints);
+        }
     }
 
     public void RemoveLifePoints(float lifepoints)
     {
-        currentLife -= lifepoints;
-        lifeBar.SetLifepoints(currentLife);
-        character.position = Vector3.zero;
-        targetSpeed = 10;
-        if (currentLife <= 0)
+        if (!demoMode)
         {
-            targetSpeed = 0;
-            SceneManager.LoadScene("GameOver");
+            currentLife -= lifepoints;
+            lifeBar.SetLifepoints(currentLife);
+            character.position = Vector3.zero;
+            targetSpeed = 10;
+            if (currentLife <= 0)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
         }
     }
 }
