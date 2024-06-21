@@ -34,23 +34,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8dfd124fd652e014781567121b76d0c3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.98296297
+      value: 0.9455578
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8dfd124fd652e014781567121b76d0c3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.12940958
+      value: -0.2981332
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8dfd124fd652e014781567121b76d0c3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.017037088
+      value: 0.039249964
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8dfd124fd652e014781567121b76d0c3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.12940949
+      value: 0.12448501
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8dfd124fd652e014781567121b76d0c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -15
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8dfd124fd652e014781567121b76d0c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -74,6 +74,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8dfd124fd652e014781567121b76d0c3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8360406630963290553}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8dfd124fd652e014781567121b76d0c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2289170333298600430}
   m_SourcePrefab: {fileID: 100100000, guid: 8dfd124fd652e014781567121b76d0c3, type: 3}
 --- !u!1 &7841109057915472351 stripped
 GameObject:
@@ -126,7 +129,21 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2289170333298600430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7841109057915472351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a01ef2c100ab74145bcd20228f082a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifePointsRemoved: 0
+  _obstacleData: {fileID: 11400000, guid: ee7af9b5d19d95040b884c8e5ddc81c1, type: 2}

@@ -4,17 +4,18 @@ public class Scroller : MonoBehaviour
 {
     public Transform chunksContainer;
     public Transform collectableContainer;
-    [SerializeField] private MainCharacterController characterController;
-
-
-    void Update()
+    public Transform obstaclesContainer;
+    
+    public void Forward(Vector3 velocity)
     {
-        var velocity = characterController.currentSpeed * Time.deltaTime * Vector3.back;
-
         foreach (Transform child in chunksContainer)
             child.position += velocity;
 
         foreach (Transform child in collectableContainer)
             child.position += velocity;
+
+        foreach (Transform child in obstaclesContainer)
+            child.position += velocity;
     }
+
 }

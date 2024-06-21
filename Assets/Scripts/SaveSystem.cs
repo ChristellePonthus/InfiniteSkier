@@ -1,5 +1,6 @@
-using System;
+using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveSystem : MonoBehaviour
 {
@@ -10,11 +11,12 @@ public class SaveSystem : MonoBehaviour
     [SerializeField] private MainCharacterController mainCharacter;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F5))
-            SaveData();
-
-        if (Input.GetKeyDown(KeyCode.F9))
+        Scene scene = SceneManager.GetActiveScene();
+        SaveData();
+        if (scene.name == "GameOver" || scene.name == "Victory")
+        {
             LoadData();
+        }
     }
 
 
@@ -22,34 +24,43 @@ public class SaveSystem : MonoBehaviour
     {
         SavedData savedData = new SavedData
         {
-            playerPositions = playerTransform.position,
             savedCurrentLife = mainCharacter.currentLife,
             savedCurrentPoints = mainCharacter.currentPoints,
         };
+        string directory = Application.persistentDataPath + "/Saves";
+
+        if (!Directory.Exists(directory))
+            Directory.CreateDirectory(directory);
+
         string jsonData = JsonUtility.ToJson(savedData);
-        string filePath = Application.persistentDataPath + "/SavedData.json";
-        Debug.Log(filePath);
-        System.IO.File.WriteAllText(filePath, jsonData); //Génération du fichier
+
+        //Génération du fichier
+        File.WriteAllText(directory + "/SavedData.json", jsonData);
     }
-    private void LoadData()
+    public void LoadData()
     {
-        string filePath = Application.persistentDataPath + "/SavedData.json";
-        string jsonData = System.IO.File.ReadAllText(filePath);
+        string savedFilePath = Application.persistentDataPath + "/Saves/SavedData.json";
+        if (File.Exists(savedFilePath))
+        {
+            string jsonData = File.ReadAllText(savedFilePath);
+            SavedData savedData = JsonUtility.FromJson<SavedData>(jsonData);
 
-        SavedData savedData = JsonUtility.FromJson<SavedData>(jsonData);
+            //Chargement des données
+            mainCharacter.currentLife = savedData.savedCurrentLife;
+            mainCharacter.currentPoints = savedData.savedCurrentPoints;
+        }
+        else
+        {
+            print("Le fichier n'existe pas !");
+        }
 
-        //Chargement des données
-        playerTransform.position = savedData.playerPositions;
-        mainCharacter.currentLife = savedData.savedCurrentLife;
-        mainCharacter.currentPoints = savedData.savedCurrentPoints;
-        lifeBar.SetLifepoints(savedData.savedCurrentLife);
-        mainCharacter.onSetPoints.Invoke(savedData.savedCurrentPoints);
+
+
     }
 }
 
 public class SavedData
 {
-    public Vector3 playerPositions;
     public float savedCurrentLife;
     public float savedCurrentPoints;
 }
